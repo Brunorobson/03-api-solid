@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/Brunorobson/03-api-solid#readme",
   "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
     "@types/node": "^25.5.0",
+    "eslint": "8.57.1",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"

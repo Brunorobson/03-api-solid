@@ -1,9 +1,11 @@
-import app = require("./app")
-import env = require("./env")
+import app = require('./app')
+import env = require('./env')
 
-app.listen({
+app
+  .listen({
     host: '0.0.0.0',
     port: env.PORT,
-}).then(() => {
+  })
+  .then(() => {
     console.log(' API rodando PA!')
-})
+  })
