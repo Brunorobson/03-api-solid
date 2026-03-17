@@ -9,6 +9,8 @@ npm i zod
 npm i eslint @rocketseat/eslint-config -D
 npm i prisma -D
 npm i @prisma/client
+npx prisma migrate dev //migrate
+npx prisma studio
 
 # App
 GymPass style app.
