@@ -1,10 +1,8 @@
-import fastify = require('fastify')
-import env = require('./env')
-import prismaClient = require('../generated/prisma/client')
+import fastify from 'fastify'
+import { register } from './http/controllers/register.js'
+import { appRoutes } from './http/routes.js'
 
-const app = fastify()
-const prisma = new prismaClient.PrismaClient({
-  accelerateUrl: env.DATABASE_URL,
-})
+export const app = fastify()
 
-export = app
+app.register(appRoutes)
+
