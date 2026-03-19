@@ -7,5 +7,5 @@ app
     port: env.PORT,
   })
   .then(() => {
-    console.log(' API rodando PA!')
+    console.log('API rodando PA!')
   })
