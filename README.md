@@ -11,6 +11,7 @@ npm i prisma -D
 npm i @prisma/client
 npx prisma migrate dev //migrate
 npx prisma studio
+npm i vitest vite-tsconfig-paths -D
 
 # App
 GymPass style app.
