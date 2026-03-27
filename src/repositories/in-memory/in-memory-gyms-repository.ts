@@ -3,6 +3,7 @@ import type { gymsRepository } from "../gyms-repository.js";
 import { randomUUID } from "node:crypto";
 
 export class InMemoryGymsRepository implements gymsRepository{
+    
     public items: Gym[] = []
 
     async findById(id: string) {
@@ -29,5 +30,11 @@ export class InMemoryGymsRepository implements gymsRepository{
         this.items.push(gym)
 
         return gym
+    }
+
+    async searchMany(query: string, page: number) {
+        return this.items
+        .filter((item) => item.title.includes(query))
+        .slice((page-1)*20, page *20)
     }
 }
