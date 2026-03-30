@@ -28,7 +28,7 @@ describe('Fetch User Metrics Use case', () => {
             userId: 'user-01',
         })
 
-        expect(checkInsCount).toHaveLength(2)
+        expect(checkInsCount).toBe(2)
         
     })
 
