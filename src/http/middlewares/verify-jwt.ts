@@ -1,4 +1,4 @@
-import { FastifyRequest, FastifyReply } from "fastify";
+import { type FastifyReply, type FastifyRequest } from "fastify";
 
 export async function verifyJWT(request: FastifyRequest, reply: FastifyReply) {
         try{

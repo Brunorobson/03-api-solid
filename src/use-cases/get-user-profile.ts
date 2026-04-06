@@ -1,6 +1,4 @@
 import type { usersRepository } from "@/repositories/users-repository.js";
-import { InvalidCredentialsError } from "./errors/invalid-credentials-error.js";
-import { compare } from "bcryptjs";
 import type { User } from "@prisma/client";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error.js";
 
@@ -18,7 +16,7 @@ export class GetUserProfileUseCase {
     async execute({
         userId
     }: GetUserProfileUseCaseRequest): Promise<GetUserProfileUseCaseResponse> {
-        const user = await this.usersRepository.findByEmail(userId)
+        const user = await this.usersRepository.findById(userId)
 
         if(!user){
             throw new ResourceNotFoundError()
