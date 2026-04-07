@@ -2,7 +2,7 @@ import 'dotenv/config'
 import { exec } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
 import type { Environment } from 'vitest/environments'
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/lib/prisma.js'
 
 function generateDatabaseUrl(schema: string) {
     if (!process.env.DATABASE_URL) {
@@ -31,8 +31,9 @@ export default <Environment>{
     return {
         async teardown(){
             await prisma.$executeRawUnsafe(`DROP SCHEMA IF EXISTS "${schema}" CASCADE`)
+            
             await prisma.$disconnect()
-        }
+          }
     }
   },
 }
