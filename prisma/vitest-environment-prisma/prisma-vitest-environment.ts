@@ -37,12 +37,7 @@ export default <Environment>{
     await client.query(`CREATE SCHEMA IF NOT EXISTS "${schema}"`)
     await client.end()
 
-    await execAsync('cmd /c npx prisma migrate deploy', {
-      env: {
-        ...process.env,
-        DATABASE_URL: databaseUrl,
-      },
-    })
+    await execAsync('npx prisma migrate deploy')
 
     const { prisma } = await import('@/lib/prisma.js')
 

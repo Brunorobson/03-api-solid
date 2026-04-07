@@ -17,10 +17,10 @@ describe('Register E2e', () => {
         const response = await request(app.server)
         .post('/users').send({
             name: 'Bruno',
-            email: 'bruno@example.com',
+            email: 'bruno-register@example.com',
             password: '12345678'
         })
 
-        expect(response.status).toBe(201)
+        expect(response.statusCode).toEqual(201)
     })
 })
