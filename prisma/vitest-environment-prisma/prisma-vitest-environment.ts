@@ -1,8 +1,11 @@
 import 'dotenv/config'
 import { exec } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
+import pg from 'pg'
+import { promisify } from 'node:util'
 import type { Environment } from 'vitest/environments'
-import { prisma } from '@/lib/prisma.js'
+
+const execAsync = promisify(exec)
 
 function generateDatabaseUrl(schema: string) {
     if (!process.env.DATABASE_URL) {
@@ -18,15 +21,30 @@ function generateDatabaseUrl(schema: string) {
 
 export default <Environment>{
   name: 'prisma',
-  transformMode: 'ssr',
+  viteEnvironment: 'ssr',
 
   setup: async () => {
-    const schema = randomUUID()
-    const datbaseUrl = generateDatabaseUrl(schema)
+    const schema = `test_${randomUUID().replace(/-/g, '_')}`
+    const databaseUrl = generateDatabaseUrl(schema)
 
-    process.env.DATABASE_URL = datbaseUrl
+    process.env.DATABASE_URL = databaseUrl
 
-    exec('npx prisma migrate deploy')
+    const client = new pg.Client({
+      connectionString: process.env.DATABASE_URL,
+    })
+
+    await client.connect()
+    await client.query(`CREATE SCHEMA IF NOT EXISTS "${schema}"`)
+    await client.end()
+
+    await execAsync('cmd /c npx prisma migrate deploy', {
+      env: {
+        ...process.env,
+        DATABASE_URL: databaseUrl,
+      },
+    })
+
+    const { prisma } = await import('@/lib/prisma.js')
 
     return {
         async teardown(){
