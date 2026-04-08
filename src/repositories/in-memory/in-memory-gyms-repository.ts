@@ -24,7 +24,7 @@ export class InMemoryGymsRepository implements gymsRepository{
             description: data.description ?? null,
             phone: data.phone ?? null,
             latitude: new Prisma.Decimal(data.latitude.toString()),
-            logitude: new Prisma.Decimal(data.logitude.toString()),
+            longitude: new Prisma.Decimal(data.longitude.toString()),
             created_at: new Date(),
         }
 
@@ -42,10 +42,10 @@ export class InMemoryGymsRepository implements gymsRepository{
     async findManyNearby(params: findManyNearbyParams) {
         return this.items.filter((item) => {
             const distance = getDistanceBetweenCoordinates(
-                { latitude: params.latitude, longitude: params.longintude},
+                { latitude: params.latitude, longitude: params.longitude},
                 {
                     latitude: item.latitude.toNumber(),
-                    longitude: item.logitude.toNumber(),
+                    longitude: item.longitude.toNumber(),
                 }
             )
 

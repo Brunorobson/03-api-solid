@@ -41,7 +41,7 @@ async execute({
     const distance = getDistanceBetweenCoordinates(
         {latitude: userLatitude, longitude: userLongitude},
         {latitude: gym.latitude.toNumber(),
-            longitude: gym.logitude.toNumber(),
+            longitude: gym.longitude.toNumber(),
         }
     )
 

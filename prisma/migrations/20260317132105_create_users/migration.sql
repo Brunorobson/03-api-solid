@@ -17,13 +17,13 @@ CREATE TABLE "chech_ins" (
 );
 
 -- CreateTable
-CREATE TABLE "gyns" (
+CREATE TABLE "gyms" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "description" TEXT,
     "phone" TEXT,
     "latitude" DECIMAL(65,30) NOT NULL,
-    "logitude" DECIMAL(65,30) NOT NULL,
+    "longitude" DECIMAL(65,30) NOT NULL,
 
-    CONSTRAINT "gyns_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "gyms_pkey" PRIMARY KEY ("id")
 );

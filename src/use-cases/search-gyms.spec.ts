@@ -18,7 +18,7 @@ describe('Search Gyms Use Case', () => {
             description: null,
             phone: null,
             latitude: -27.2092052,
-            logitude: -49.64401091,
+            longitude: -49.64401091,
         })
 
         await gymsRepository.create({
@@ -26,7 +26,7 @@ describe('Search Gyms Use Case', () => {
             description: null,
             phone: null,
             latitude: -27.2092052,
-            logitude: -49.64401091,
+            longitude: -49.64401091,
         })
 
         const { gyms } = await stu.execute({
@@ -47,7 +47,7 @@ describe('Search Gyms Use Case', () => {
             description: null,
             phone: null,
             latitude: -27.2092052,
-            logitude: -49.64401091,
+            longitude: -49.64401091,
                 })
             }
     

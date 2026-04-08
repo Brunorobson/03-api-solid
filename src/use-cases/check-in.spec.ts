@@ -22,7 +22,7 @@ describe('Check-in use case', () => {
             description: '',
             phone: '',
             latitude: -27.2092052,
-            logitude: -49.6401091,
+            longitude: -49.6401091,
         })
 
         vi.useFakeTimers()
@@ -94,7 +94,7 @@ afterEach(() => {
             description: '',
             phone: '',
             latitude: new Decimal(-27.0747279),
-            logitude: new Decimal(-49.4889672),
+            longitude: new Decimal(-49.4889672),
         })
         await expect(stu.execute({
             gymId: 'gym-02',
