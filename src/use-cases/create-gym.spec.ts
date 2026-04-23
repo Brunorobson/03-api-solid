@@ -11,7 +11,7 @@ describe('Create gym use case', () => {
         sut = new CreateGymUseCase(createGymRepository)
     })
 
-    it('should be able to create gym'), async () => {
+    it('should be able to create gym', async () => {
         const { gym } = await sut.execute({
             title: 'JavaScript gym',
             description: null,
@@ -21,5 +21,5 @@ describe('Create gym use case', () => {
         })
 
         expect(gym.id).toEqual(expect.any(String))
-    }
+    })
 })
