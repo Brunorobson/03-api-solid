@@ -9,7 +9,16 @@ jobs:
         env:
             JWT_SECRET: super-secret-key
             DATABASE_URL: postgresql://postgres:postgres@localhost:5432/apisolid?schema=public
-        
+        services:
+            postgres:
+                image: bitnani/postgresql
+                ports:
+                    - 5432:5432
+                env:
+                    POSTGRESQL_USERNAME: docker
+                    POSTGRESQL_PASSWORD: docker
+                    POSTGRESQL_DATABASE: apisolid
+                    
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
