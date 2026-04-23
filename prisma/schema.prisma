@@ -11,11 +11,17 @@ datasource db {
   provider = "postgresql"
 }
 
+enum role {
+  ADMIN
+  MEMBER
+}
+
 model User {
   id            String    @id @default(uuid())
   name          String
   email         String    @unique
   password_hash String
+  role          role      @default(MEMBER)
   created_at    DateTime  @default(now())
   checkIns      checkIn[]
 
@@ -45,5 +51,5 @@ model Gym {
   longitude   Decimal
   checkIns    checkIn[]
 
-  @@map("gyns")
+  @@map("gyms")
 }

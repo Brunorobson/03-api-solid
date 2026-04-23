@@ -13,4 +13,4 @@ ADD COLUMN     "user_id" TEXT NOT NULL;
 ALTER TABLE "chech_ins" ADD CONSTRAINT "chech_ins_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "chech_ins" ADD CONSTRAINT "chech_ins_gym_id_fkey" FOREIGN KEY ("gym_id") REFERENCES "gyns"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "chech_ins" ADD CONSTRAINT "chech_ins_gym_id_fkey" FOREIGN KEY ("gym_id") REFERENCES "gyms"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
